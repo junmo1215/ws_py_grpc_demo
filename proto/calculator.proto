@@ -3,20 +3,14 @@ syntax = "proto3";
 package calculator;
 
 service Calculator {
-    rpc Add (CalculatorRequest) returns (CalculatorResponse) {}
-
-    rpc Sub (CalculatorRequest) returns (CalculatorResponse) {}
-
-    rpc Mul (CalculatorRequest) returns (CalculatorResponse) {}
-
-    rpc Div (CalculatorRequest) returns (CalculatorResponse) {}
+    rpc Add (CalculatorAddRequest) returns (CalculatorAddResponse) {}
 }
 
-message CalculatorRequest {
+message CalculatorAddRequest {
   double num1 = 1;
   double num2 = 2;
 }
 
-message CalculatorResponse {
+message CalculatorAddResponse {
   double result = 1;
 }

@@ -1,4 +1,5 @@
 grpcio
 protobuf
+python-dotenv
 
 grpcio-tools

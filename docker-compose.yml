@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  dev_ws_py_grpc_demo:
+    container_name: dev_ws_py_grpc_demo
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    # command: python /app/ws_py_grpc_demo/main.py
+    entrypoint: /app/docker/entrypoint.sh
+    volumes:
+      - ./:/app/ws_py_grpc_demo
+    expose:
+      - 443
+    networks:
+      - wservice_dev_workspace_default
+    stdin_open: true
+    tty: true
+
+networks:
+  wservice_dev_workspace_default:
+    external: true
