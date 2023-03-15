@@ -10,3 +10,16 @@ docker-compose build
 # 运行
 docker-compose up -d
 ```
+
+# docker exec
+
+``` sh
+docker exec -it `docker ps -qf "name=^(dev_)?ws_webdav$"` sh
+```
+
+# pylint
+
+``` sh
+pylint --rcfile=.pylintrc ./src/ ./main.py ./debug.py ./run_test.py
+```
+
