@@ -14,7 +14,7 @@ docker-compose up -d
 # docker exec
 
 ``` sh
-docker exec -it `docker ps -qf "name=^(dev_)?ws_webdav$"` sh
+docker exec -it `docker ps -qf "name=^(dev_)?ws_py_grpc_demo$"` sh
 ```
 
 # pylint
