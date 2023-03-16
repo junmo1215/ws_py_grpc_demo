@@ -23,10 +23,10 @@ class CalculatorSvr(calculator_pb2_grpc.CalculatorServicer):
     )
 
 def serve():
-  grpc_port = os.getenv("GRPC_PORT", 50051)
+  grpc_port = int(os.getenv("GRPC_PORT", "50051"))
   server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
   calculator_pb2_grpc.add_CalculatorServicer_to_server(CalculatorSvr(), server)
-  server.add_insecure_port(f'[::]:{grpc_port}')
+  server.add_insecure_port(f"[::]:{grpc_port}")
   server.start()
   logging.info("gRPC server started")
   server.wait_for_termination()

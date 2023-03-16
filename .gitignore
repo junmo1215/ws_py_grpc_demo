@@ -1,4 +1,4 @@
 .env
 logs/
-__pycache__
+**/__pycache__/*
 proto/*_pb2*.py

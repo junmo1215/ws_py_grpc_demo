@@ -8,7 +8,7 @@ from src.util.env import load_env
 from src.util.log import config_logger
 
 def grpc_debug():
-  grpc_port = os.getenv("GRPC_PORT", 50051)
+  grpc_port = int(os.getenv("GRPC_PORT", "50051"))
   with grpc.insecure_channel(f"localhost:{grpc_port}") as channel:
     stub = calculator_pb2_grpc.CalculatorStub(channel)
     response = stub.Add(calculator_pb2.CalculatorAddRequest(num1=1, num2=2))
