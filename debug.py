@@ -17,7 +17,7 @@ def grpc_debug():
 def main():
   grpc_debug()
 
-if __name__ == '__main__':
+if __name__ == "__main__":
   load_env()
   config_logger("ws_py_grpc_demo_debug")
   main()

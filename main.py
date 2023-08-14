@@ -9,10 +9,12 @@ from proto import calculator_pb2, calculator_pb2_grpc
 from src.util.env import load_env
 load_env()
 
+# pylint: disable=wrong-import-position
 from src.util.log import config_logger
 from src.util.error import catch_inner_error_wrapper
 from src.config import g_config
 from src.calculator import Calculator
+# pylint: enable=wrong-import-position
 
 class CalculatorSvr(calculator_pb2_grpc.CalculatorServicer):
   @catch_inner_error_wrapper(calculator_pb2.CalculatorAddResponse)
