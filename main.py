@@ -25,7 +25,7 @@ class CalculatorSvr(calculator_pb2_grpc.CalculatorServicer):
       result=Calculator.Add(num1, num2)
     )
 
-def serve():
+def start_server():
   server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
   calculator_pb2_grpc.add_CalculatorServicer_to_server(CalculatorSvr(), server)
   server.add_insecure_port(f"[::]:{g_config.GRPC_PORT}")
@@ -35,4 +35,4 @@ def serve():
 
 if __name__ == "__main__":
   config_logger("ws_py_grpc_demo")
-  serve()
+  start_server()

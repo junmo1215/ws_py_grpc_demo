@@ -40,18 +40,28 @@ def config_logger(log_name: str) -> None:
   )
   info_handler.setLevel(logging.INFO)
 
+  # 创建打印到控制台的日志
+  console_handler = logging.StreamHandler()
+  console_handler.setLevel(logging.DEBUG)
+
   # 创建 Formatter，用于格式化日志信息
-  formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+  formatter = logging.Formatter((
+    "%(asctime)s - %(levelname)s - "
+    "Thread %(thread)d (%(threadName)s) - "
+    "%(module)s:%(funcName)s:%(lineno)d - %(message)s"
+  ))
 
   # 设置 Formatter
   all_handler.setFormatter(formatter)
   info_handler.setFormatter(formatter)
+  console_handler.setFormatter(formatter)
 
   # 获取根 Logger，并设置 Handler
   logger = logging.getLogger()
   logger.setLevel(logging.DEBUG)
   logger.addHandler(all_handler)
   logger.addHandler(info_handler)
+  logger.addHandler(console_handler)
 
   # 禁用控制台输出
   logger.propagate = False
