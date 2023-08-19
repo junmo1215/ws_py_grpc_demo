@@ -2,7 +2,6 @@
 
 import logging
 import asyncio
-import concurrent.futures
 import threading
 
 class TaskRunner:
@@ -33,10 +32,11 @@ class TaskRunner:
     async def _warapper(coroutine):
       try:
         await coroutine
-      except Exception as e:
+      except Exception as e: # pylint: disable=broad-exception-caught
         logging.error("TaskRunner encounter an exception when execute corountine: %s", e)
         # print(e, stack_info=True, stderr=True)
-        # the following statement is running in the loop thread also, maybe can consider deleving it into the origin threadd
+        # the following statement is running in the loop thread also,
+        # maybe can consider deleving it into the origin threadd
         if exception_callback is not None:
           exception_callback(e)
     asyncio.run_coroutine_threadsafe(_warapper(coroutine), self.loop)

@@ -48,9 +48,9 @@ class TestTaskPool(unittest.TestCase):
   def test_run_task_normal(self):
     async def async_task():
       logging.debug("run test_run_task_normal")
-    
+
     self.tasks.run_async(async_task())
-    time.sleep(1)
+    time.sleep(0.5)
 
   def test_run_task_with_exception(self):
     event = threading.Event()
