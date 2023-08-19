@@ -8,7 +8,7 @@
 """
 
 import unittest
-from src.util.log import config_logger
+import logging
 from src.util.env import load_env
 
 # pylint: disable=unused-import
@@ -20,5 +20,9 @@ def main():
 
 if __name__ == "__main__":
   load_env()
-  config_logger("ws_py_grpc_demo_test")
+  logging.basicConfig(level=logging.CRITICAL, format=(
+    "%(asctime)s - %(levelname)s - "
+    "Thread %(thread)d (%(threadName)s) - "
+    "%(module)s:%(funcName)s:%(lineno)d - %(message)s"
+  ))
   main()
