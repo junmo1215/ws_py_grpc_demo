@@ -13,6 +13,7 @@ from src.util.env import load_env
 
 # pylint: disable=unused-import
 from test.test_task_pool import TestTaskPool
+from test.test_timestamp import TestTimestamp
 # pylint: enable=unused-import
 
 def main():
