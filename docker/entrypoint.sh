@@ -1,6 +1,6 @@
 #!/bin/sh
 
-until cd /app/ws_py_grpc_demo/src/
+until cd /app/ws_py_grpc_demo/
 do
     echo "Waiting for volume..."
     sleep 1

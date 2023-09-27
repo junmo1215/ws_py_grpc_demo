@@ -16,16 +16,16 @@ class TaskRunner:
       print("async func begin")
       await asyncio.sleep(1)
       print("async func end")
-    
+
     run_async(test())
     ```
 
     with exception catch:
-    
+
     ``` py
     def exception_handler(e):
         print("catch an exception", e)
-    
+
     run_async(test(), exception_handler)
     ```
     """

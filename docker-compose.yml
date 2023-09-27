@@ -7,10 +7,8 @@ services:
     build:
       context: .
       dockerfile: ./docker/Dockerfile
-    # command: python /app/ws_py_grpc_demo/main.py
+    # command: tail -f /dev/null
     entrypoint: /app/docker/entrypoint.sh
-    # volumes:
-    #   - ./:/app/ws_py_grpc_demo
     expose:
       - 443
     networks:
