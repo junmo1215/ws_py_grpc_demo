@@ -6,11 +6,10 @@ services:
     restart: unless-stopped
     build:
       context: .
-      dockerfile: ./docker/Dockerfile
-    # command: python /app/ws_py_grpc_demo/main.py
-    entrypoint: /app/docker/entrypoint.sh
-    # volumes:
-    #   - ./:/app/ws_py_grpc_demo
+      dockerfile: ./docker/Dockerfile_DEV
+    entrypoint: tail -f /dev/null
+    volumes:
+      - ./:/app/ws_py_grpc_demo
     expose:
       - 443
     networks:

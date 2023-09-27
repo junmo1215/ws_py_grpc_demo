@@ -14,11 +14,12 @@ ADD ./.env /app/ws_py_grpc_demo/
 ADD ./cli.py /app/ws_py_grpc_demo/
 ADD ./debug.py /app/ws_py_grpc_demo/
 ADD ./main.py /app/ws_py_grpc_demo/
-ADD ./generate.sh /app/ws_py_grpc_demo/
 
-RUN chmod +x ./generate.sh
-RUN ./generate.sh
-RUN rm ./generate.sh
+# 生成PB
+ADD ./scripts/generate.sh /app/ws_py_grpc_demo/scripts/
+RUN chmod +x ./scripts/generate.sh
+RUN ./scripts/generate.sh
+RUN rm ./scripts/generate.sh
 
 ADD ./docker/ /app/docker
 RUN chmod +x /app/docker/entrypoint.sh

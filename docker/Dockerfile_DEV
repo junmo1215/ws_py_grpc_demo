@@ -1,0 +1,7 @@
+FROM ws_py_grpc_demo_ws_py_grpc_demo
+
+RUN apt-get update && \
+    apt-get install -y iputils-ping net-tools vim
+
+ADD ./docker/ /app/docker
+RUN chmod +x /app/docker/entrypoint.sh
